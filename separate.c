@@ -12,7 +12,7 @@
 char **separate(char *string, const char *s)
 {
 	char *token = NULL, **darray = NULL;
-	int size = 0, idx = 0, idx2 = 0;
+	int size = 0, idx = 0;
 
 	size = count_words(string);
 	darray = malloc(sizeof(char *) * size + 1);
