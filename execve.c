@@ -18,7 +18,7 @@ int spawn_process(char *cmd[], char *s)
 	{
 		perror("Error: forking");
 	}
-	
+
 	if (ppid == 0)
 	{
 		if (execve(s, cmd, NULL))

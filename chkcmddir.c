@@ -17,7 +17,7 @@ char *chkcmddir(char *strone, char *strtwo)
 	struct stat cmdstr;
 
 	tokenz = separate(strone, cln);
-	length2 = strlen("hello");	
+	length2 = strlen("hello");
 	printf("%d", length2);
 	slashcon = _strncat("/", strtwo, length + 2);
 	printf("%s:\n", slashcon);
@@ -25,7 +25,7 @@ char *chkcmddir(char *strone, char *strtwo)
 	while (result == -1 && tokenz[idx] != NULL)
 	{
 		length = _strlen(tokenz[idx]);
-		length = ((length + length2) + 1); 
+		length = ((length + length2) + 1);
 		constr = _strncat(tokenz[idx], slashcon, length);
 		result = stat(constr, &cmdstr);
 		if (result == 0)
@@ -34,5 +34,5 @@ char *chkcmddir(char *strone, char *strtwo)
 		}
 
 	}
-	exit (0);
+	exit(0);
 }

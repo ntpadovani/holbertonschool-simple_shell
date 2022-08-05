@@ -81,6 +81,7 @@ int print_int(int n)
 int print_number(va_list ptr)
 {
 	int n, count;
+
 	n = va_arg(ptr, int);
 	count = print_int(n);
 	return (count);
