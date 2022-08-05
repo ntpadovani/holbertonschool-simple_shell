@@ -7,10 +7,7 @@
  * Return: 0 if process executed succesfully,
  */
 
-
-
-
-int spawn_process(char *args[])
+int spawn_process(char *cmd[], char *s)
 {
 
 	pid_t ppid;
@@ -21,19 +18,20 @@ int spawn_process(char *args[])
 	{
 		perror("Error: forking");
 	}
-
+	
 	if (ppid == 0)
 	{
-		if (execve(args[0], args, NULL) == -1)
+		if (execve(s, cmd, NULL))
 		{
-			status = 1;
-			return (status);
+			perror("Execve");
+			exit(EXIT_FAILURE);
+			/*status = 1;*/
+			/*return (status);*/
 		}
 	}
-	else
+	if (ppid > 0)
 	{
 		wait(&wstatus);
-		EXIT_CODE = WEXITSTATUS(wstatus);
 	}
 	return (status);
 }

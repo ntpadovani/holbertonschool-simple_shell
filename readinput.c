@@ -2,10 +2,10 @@
 
 int main(int argc, char **argv, char **env)
 {
-	char *buffer = NULL, **command = NULL, *path = NULL;
-	char *result = NULL;
+	char *buffer = NULL, **command = NULL;/* *path = NULL;*/
+	/*char *result = NULL;*/
 	size_t size = 0;
-	int usrinput = 1, idx;
+	int usrinput = 1;
 
 	(void) argc;
 	(void) argv;
@@ -13,17 +13,23 @@ int main(int argc, char **argv, char **env)
 	_printf("$: ");
 	while ((usrinput = getline(&buffer, &size, stdin)) > 0)
 	{
-		command = separate(buffer, " "); /*tokenize*/
-		for (idx = 0; idx !='\0'; idx++)
+		if (_strcmp(buffer,"exit\n") == 0)
 		{
-			_printf("%s:", command[idx]);
+			free(buffer);
+			exit(0);
 		}
-
-		path = _getpath(env);
-		result = chkcmddir(path, command[0]);
-		printf("%s\n", result);
+		if (_strcmp(buffer,"env\n") == 0)
+                {   
+			_printenv(env);
+			continue;		
+                }   
+ 
+		command = separate(buffer, " \n"); /*tokenize*/
+		printf("%s", command[0]);
+		/*path = _getpath(env);*/
+		/*result = chkcmddir(path, command[0]);*/
 		/*conct dir & cmd*/
-		/*spawn_process(result);*/
+		spawn_process(command, command[0]);
 		_printf("$: ");
 	}
 	free(buffer);

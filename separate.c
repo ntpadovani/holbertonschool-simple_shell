@@ -16,7 +16,6 @@ char **separate(char *string, const char *s)
 
 	size = count_words(string);
 	darray = malloc(sizeof(char *) * size + 1);
-
 	if (darray == NULL)
 	{
 		exit(-1);

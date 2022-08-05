@@ -37,9 +37,10 @@ int print_char(va_list prt);
 int print_string(va_list ptr);
 int print_number(va_list ptr);
 int print_int(int n); 
-int spawn_process(char *args[]);
+int spawn_process(char *cmd[], char *s);
 char *_strncat(char *dest, char *src, int n);
 char *chkcmddir(char *strone, char *strtwo);
 char *_getpath(char **envp);
-int __attribute((unused)) EXIT_CODE;
+int _strcmp(char *s1, char *s2);
+int _printenv(char **env);
 #endif
