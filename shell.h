@@ -40,5 +40,6 @@ int print_int(int n);
 int spawn_process(char *args[]);
 char *_strncat(char *dest, char *src, int n);
 char *chkcmddir(char *strone, char *strtwo);
+char *_getpath(char **envp);
 int __attribute((unused)) EXIT_CODE;
 #endif
