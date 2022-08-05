@@ -24,7 +24,6 @@ int main(int argc, char **argv, char **env)
 		printf("%s\n", result);
 		/*conct dir & cmd*/
 		/*spawn_process(result);*/
-		_printf("You typed:%s", result);
 		_printf("$: ");
 	}
 	free(buffer);
