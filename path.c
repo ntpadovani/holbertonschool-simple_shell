@@ -15,7 +15,7 @@ char *_getpath(char **envp)
 	for (; envp[i] != NULL ; i++)
 	{
 		grab = separate(envp[i], "=");
-		if (strcmp(grab[0],"PATH") == 0)
+		if (strcmp(grab[0], "PATH") == 0)
 		{
 			return (grab[1]);
 		}

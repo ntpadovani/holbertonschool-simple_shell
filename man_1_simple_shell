@@ -1,0 +1,57 @@
+.TH hsh 1 "August 5 2022" "1.0" "Simple Shell"
+
+.SH NAME
+Simple_Shell - hsh
+-command line interpreter or shell
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SH DESCRIPTION
+.B simple_shell
+.TP
+This program runs a shell interface using C programming, it will handle regular
+commands with full path, shorten commands such as ls, cd, pwd, and
+others. As well manage arguments added to the different commands.
+
+
+.SH COMMANDS
+.TP
+All commands passed by the user will be executed as a regular shell would. 
+
+Example of executables:
+.IP
+.br
+.\&
+.RS
+\&$ echo "Hello World"
+.br
+\&"Hello World"
+.br
+\&$
+
+.SH BUILTINS
+
+The following builtin commands are supported:
+
+.IT
+.B exit
+- exits the program
+
+.B env
+- prints the environment variables
+
+.B setenv
+- sets the environment
+
+.B unsetenv
+- removes elements from the environment
+
+
+.SH BUGS
+ No bugs
+
+.SH AUTHORS
+Raul J Acosta <5015@holbertonstudent.com>
+Norman Torres
+Griseliz Ramos

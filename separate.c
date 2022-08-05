@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * separate - A function that splits a
+ *separate - A function that splits a
  *            string and returns an array
  *            of each word of the string.
- * @string: The string containing the words.
- *
- * Return:  An array for each word found inside the string.
+ *@string: The string containing the words.
+ *@s: The delimiter.
+ *Return:  An array for each word found inside the string.
  */
 
 char **separate(char *string, const char *s)
@@ -16,7 +16,6 @@ char **separate(char *string, const char *s)
 
 	size = count_words(string);
 	darray = malloc(sizeof(char *) * size + 1);
-
 	if (darray == NULL)
 	{
 		exit(-1);
