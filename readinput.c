@@ -1,12 +1,14 @@
 #include "shell.h"
 
-int main(void)
+int main(int argc, char **argv, char **env)
 {
-	char *buffer = NULL, **command = NULL; 
+	char *buffer = NULL, **command = NULL, *path = NULL;
 	char *result = NULL;
 	size_t size = 0;
 	int usrinput = 1, idx;
-	char patharray[] = "/usr/bin/";
+
+	(void) argc;
+	(void) argv;
 
 	_printf("$: ");
 	while ((usrinput = getline(&buffer, &size, stdin)) > 0)
@@ -14,11 +16,15 @@ int main(void)
 		command = separate(buffer, " "); /*tokenize*/
 		for (idx = 0; idx !='\0'; idx++)
 		{
-			printf("%s:", command[idx]);
+			_printf("%s:", command[idx]);
 		}
-		result = chkcmddir(patharray, command[0]); /*conct dir & cmd*/
+
+		path = _getpath(env);
+		result = chkcmddir(path, command[0]);
+		printf("%s\n", result);
+		/*conct dir & cmd*/
 		/*spawn_process(result);*/
-		_print("You typed:%s", result);
+		_printf("You typed:%s", result);
 		_printf("$: ");
 	}
 	free(buffer);
