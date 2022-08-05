@@ -34,9 +34,5 @@ char **separate(char *string, const char *s)
 		idx++;
 		token = strtok(NULL, s);
 	}
-	for(; darray[idx2] != NULL; idx2++)
-	{
-		printf(":%s", darray[idx2]);
-	}
 	return (darray);
 } /*end bracket*/
